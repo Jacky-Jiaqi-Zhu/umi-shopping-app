@@ -13,5 +13,8 @@
     "antd": "^3.13.0",
     "axios": "^0.18.0",
     "umi-plugin-react": "^1.4.2"
+  },
+  "devDependencies": {
+    "umi": "^2.9.5"
   }
 }
