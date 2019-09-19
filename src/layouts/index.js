@@ -5,16 +5,27 @@ import styles from "./index.css";
 const { Header, Footer, Content } = Layout;
 
 export default function (props) {
-  const selectedKeys = [props.location.pathname]
+  const pathname = props.location.pathname;
 
-  console.log(props.location.pathname)
-  console.log(selectedKeys)
+  const menus = [
+    {path: "/", name: "courses"},
+    {path: "/users", name: "user"},
+    {path: "/about", name: "about"}
+  ]
+
+  // const selectedKeys = [props.location.pathname]
+  const selectedKeys = menus.filter( menu => {
+    if (menu.path === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(menu.path)
+  }).map(menu => menu.path)
 
   return (
     <Layout>
       {/* 页头 */}
       <Header className={styles.header}>
-        <img className={styles.logo} src="https://img.kaikeba.com/logo-new.png" />
+        <img className={styles.logo} src="http://www.mindatlas.com/img/mindatlas-tag-horizontal-positive.png" />
         <Menu
           theme="dark"
           mode="horizontal"
